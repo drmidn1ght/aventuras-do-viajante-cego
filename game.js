@@ -27,7 +27,7 @@ const storyData = [
     },
    
 ];
-
+ // Lembrete: adicionar mais objetos à array conforme necessário
 function startGame() {
     displayStory();
 }
