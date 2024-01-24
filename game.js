@@ -25,9 +25,56 @@ const storyData = [
             { text: "Sobre o significado da vida.", nextIndex: 6 }
         ]
     },
-   
+    {
+        title: "A Ponte Misteriosa",
+        text: "Ao atravessar a ponte, você se encontra em uma terra misteriosa. À frente, há uma estrada sinuosa que se perde na escuridão da floresta. O que você decide fazer?",
+        choices: [
+            { text: "Seguir pela estrada sinuosa.", nextIndex: 7 },
+            { text: "Retornar à margem do rio.", nextIndex: 4 }
+        ]
+    },
+    {
+        title: "A Estrada Sinuosa",
+        text: "A estrada leva você a uma vila encantadora. Os moradores parecem acolhedores. O que você gostaria de fazer?",
+        choices: [
+            { text: "Explorar a vila.", nextIndex: 8 },
+            { text: "Continuar sua jornada pela floresta.", nextIndex: 9 }
+        ]
+    },
+    {
+        title: "A Sabedoria da Vila",
+        text: "Enquanto explora a vila, você encontra um ancião sábio. Ele oferece para compartilhar conhecimentos contigo. O que você pergunta ao ancião?",
+        choices: [
+            { text: "Sobre o passado da vila.", nextIndex: 10 },
+            { text: "Sobre os perigos na floresta.", nextIndex: 11 }
+        ]
+    },
+    {
+        title: "A Escolha Final",
+        text: "Com as informações do ancião, você se depara com uma bifurcação. À esquerda, um caminho desconhecido. À direita, o retorno à vila. Qual caminho você escolhe?",
+        choices: [
+            { text: "Seguir o caminho desconhecido.", nextIndex: 12 },
+            { text: "Retornar à vila para mais aventuras.", nextIndex: 8 }
+        ]
+    },
+    
+    {
+        title: "O Destino Desconhecido",
+        text: "Ao seguir o caminho desconhecido, você se depara com uma caverna misteriosa. Dentro dela, há uma luz brilhante. O que você decide fazer?",
+        choices: [
+            { text: "Investigar a luz brilhante.", nextIndex: 13 },
+            { text: "Retornar à bifurcação.", nextIndex: 12 }
+        ]
+    },
+    {
+        title: "A Descoberta Final",
+        text: "Ao se aproximar da luz, você descobre uma antiga relíquia que revela segredos ancestrais. Sua jornada chegou ao fim. O que você aprendeu?",
+        choices: [
+            { text: "Refletir sobre as lições aprendidas.", nextIndex: -1 } // Valor negativo indica o fim do jogo
+        ]
+    },
 ];
- // Lembrete: adicionar mais objetos à array conforme necessário
+
 function startGame() {
     displayStory();
 }
@@ -58,6 +105,13 @@ function displayStory() {
         button.onclick = () => makeChoice(index + 1);
         choicesContainer.appendChild(button);
     });
+
+    // Verifica se é o final do jogo
+    if (currentStoryIndex === -1) {
+        storyTitle.textContent = "Fim do Jogo";
+        storyText.textContent = "Parabéns por completar 'As Aventuras do Viajante Cego'!";
+        choicesContainer.innerHTML = "";
+    }
 }
 
 // Inicia o jogo quando a página é carregada
